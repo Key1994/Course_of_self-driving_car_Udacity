@@ -1,5 +1,7 @@
 # The project of lane lines finding 
 
+[![Video1](https://github.com/Key1994/Course_of_self-driving_car_Udacity/blob/master/lane_lines_finding/Graphs/cover1.png)](https://www.youtube.com/watch?v=C8_XqO329_k)  
+
 ## Introduction  
 Vehicles need to follow certain driving rules. It is the lane lines on the road plays the role in regulating the driving rules of vehicles. There are many kinds of lanes, such as single-lane, double-lane, dashed line, grid line, etc. Lane lines of different colors also represent different driving rules. Cars and pedestrians can use the lanes to avoid conflicts. Therefore, accurate detection and recognition of lane lines are the basis of automobile driving.  
 The course of self-driving car Udacity includes a lane lines' detection project, whose purpose is to teach vehicles how to detect and identify lanes. This document summarizes the contents of this project.  
@@ -83,5 +85,7 @@ def yellow_transform(image):
 ```
 ### Results validation
 Once the improvements are completed, we verify the results on the video named "challenge. mp4". In order to make the effect more obvious, the original video is processed here to make it darker so that the detected lane lines can be easily observed on the graph.  
+
+[![Video2](https://github.com/Key1994/Course_of_self-driving_car_Udacity/blob/master/lane_lines_finding/Graphs/cover2.png)](https://www.youtube.com/watch?v=sNm08lyf_6I)  
 
 It can be seen that most of the trees' shadow are ignored after the improvement. In the damaged part of the road, some lane lines can be detected. Although the results are still not perfect and many problems also exist, it has been significantly improved compared with the original results. Therefore we can consider that our improvement method is effective. However, the improving section will increase the amount of calculation and the operation time, which requires stronger processor to complete the operation. This is a disadvantage of the improved method.  
