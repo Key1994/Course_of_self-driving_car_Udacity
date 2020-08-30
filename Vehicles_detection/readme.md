@@ -24,7 +24,7 @@ Figure 2 is the image after preprocess.
 ![Figure 2 Image after preprocess](https://github.com/Key1994/Course_of_self-driving_car_Udacity/blob/master/Vehicles_detection/Graphs/Fig2.png)  
 > Calculate the gradient of each pixel  
 The gradient of each pixel contains magnitude and direction. We can obtain the gradient magnitude of one pixel in the x direction (Gx) and y direction (Gy) respectively according to the adjacent pixel. Then, the actual gradient magnitude G and orientation alpha of this pixel can be calculated through the following equations:  
-![Fig 16](https://github.com/Key1994/Course_of_self-driving_car_Udacity/blob/master/Vehicles_detection/Graphs/Fig16.png)  
+![Fig 15](https://github.com/Key1994/Course_of_self-driving_car_Udacity/blob/master/Vehicles_detection/Graphs/Fig15.png)  
 > Drawing the histogram of oriented gradient  
 In this step, the image is separated into several cells and each cell contains 8 * 8 pixels. Each pixel has two data: the gradient magnitude and gradient direction, thus a cell can be described by 8 * 8 * 2 = 128 data. The gradient direction of pixels is defined between 0 ~180 degree, so they are sorted in 9 bins in average here. The value of each bin is the sum of the gradient magnitude located in this bin. Once the value of each bin is determined, the histogram of oriented gradient can be drawn. Figure 3 is an example of a histogram.  
 ![Figure 3 Example of histogram](https://github.com/Key1994/Course_of_self-driving_car_Udacity/blob/master/Vehicles_detection/Graphs/Fig3.png)  
@@ -44,7 +44,7 @@ The procedure to train the SVM is:
 > * Verifying the classification accuracy of the trained SVM model in the validation set. Here, I got a 95% accuracy in the validation set, so the performance of the trained model is satisfactory.  
 > * Saving the parameters of the SVM model.  
 ### 2.4 Sliding windows  
-The trained SVM model cannot be used to detect the vehicles in the example image in Figure 1 directly, since the images in the training set are 64*64, while the example image is 7201280. In other words, the length of feature vector that SVM classifier expects and that of example image is inconsistent. To solve this problem, the method of sliding windows is applied.  
+The trained SVM model cannot be used to detect the vehicles in the example image in Figure 1 directly, since the images in the training set are 64*64, while the example image is 720*1280. In other words, the length of feature vector that SVM classifier expects and that of example image is inconsistent. To solve this problem, the method of sliding windows is applied.  
 The principle of sliding windows is: select a box with fixed size and extract the HOG feature of this box. Using the feature vector of the box as the input of the trained SVM classifier and get the classification result. One box is a window, slide the window in the example image by a specific order until all the pixels are slid.  
 The ideal size of the window is 64*64, which is consistent with the images in training set. However, the size of 64*64 is too small to contain the vehicle in the example image, thus the SVM cannot output accurate the results. In practice, the size of the window needs to be adjusted according to the size of the images taken by the camera. The pixels contain in a cell also need to be adjusted to ensure that the length of feature vector is appropriate.   
 The selection of the window's sliding stride is also important. A small stride means that it needs more sliding windows to cover all the pixels and the computation will be larger. A large stride means that the sliding windows are too dispersive and the useful information may be ignored. Therefore, a reasonable sliding stride is a key factor for accurate vehicles detection.  
@@ -83,7 +83,7 @@ First, divide an image into an S*S grid, such as 7*7 and 13*13. If the center of
 There are B bounding box (also called bbx) in a cell, which are used to described the probability and position of the objects. A bounding box is composed of 5 data: list (x,y,w,h) to describe the position and confidence to predict the class probability.   
 The meaning of list (x,y,w,h) is shown in Figure 10. Generally, the value of four numbers are normalized to the range of [0,1].  
 ![Figure 10 The meaning of list (x,y,w,h)](https://github.com/Key1994/Course_of_self-driving_car_Udacity/blob/master/Vehicles_detection/Graphs/Fig10.png)  
-The calculation of confidence is： 
+The calculation of confidence is:  
 ![Fig 16](https://github.com/Key1994/Course_of_self-driving_car_Udacity/blob/master/Vehicles_detection/Graphs/Fig16.png)  
 Pr(Object) is the probability that the bbx contains objects, which can be 0 or 1. Pr(Classi) refers to the probability that the object is i-th class if there is an object in the bbx.   
 Therefore, the information of a cell can be expressed by a vector with (B * 5 + C) elements like Figure 11. Here, C is the number of the overall classes in the dataset.  
