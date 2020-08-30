@@ -5,7 +5,8 @@ Vehicles need to follow certain driving rules. It is the lane lines on the road 
 The course of self-driving car Udacity includes a lane lines' detection project, whose purpose is to teach vehicles how to detect and identify lanes. This document summarizes the contents of this project.  
 There are two main method to finding lane lines in the picture.   
 > * Lanes detection based on road characteristics;   
-> * Lanes detection based on road model.  
+> * Lanes detection based on road model. 
+
 ![Fig1](https://github.com/Key1994/Course_of_self-driving_car_Udacity/blob/master/lane_lines_finding/Graphs/Fig1.png)  
 The first method uses the difference of physical characteristics between lanes and road environment to segment and process images, so as to highlight lane features and realize lane detection. This method has low complexity and high real-time performance, but it is vulnerable to road environment interference. The second method bases on different road models (such as straight line, parabola, spline curve, combination model, etc.), and determine the parameters of each model via proper methods. This method has high accuracy for the detection of specific roads, but it has strong limitations, such as large computational complexity and poor real-time performance.  
 In this project, the lanes detection method based on road characteristics is adopted. The main processes are as follows.  
