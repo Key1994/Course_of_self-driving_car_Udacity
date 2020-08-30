@@ -22,6 +22,7 @@ Figure 2 is the image after preprocess.
 ![Figure 2 Image after preprocess](https://github.com/Key1994/Course_of_self-driving_car_Udacity/blob/master/Vehicles_detection/Graphs/Fig2.png)  
 > Calculate the gradient of each pixel  
 The gradient of each pixel contains magnitude and direction. We can obtain the gradient magnitude of one pixel in the x direction (Gx) and y direction (Gy) respectively according to the adjacent pixel. Then, the actual gradient magnitude G and orientation alpha of this pixel can be calculated through the following equations:  
+![Fig 16](https://github.com/Key1994/Course_of_self-driving_car_Udacity/blob/master/Vehicles_detection/Graphs/Fig16.png)  
 > Drawing the histogram of oriented gradient  
 In this step, the image is separated into several cells and each cell contains 8 * 8 pixels. Each pixel has two data: the gradient magnitude and gradient direction, thus a cell can be described by 8 * 8 * 2 = 128 data. The gradient direction of pixels is defined between 0 ~180 degree, so they are sorted in 9 bins in average here. The value of each bin is the sum of the gradient magnitude located in this bin. Once the value of each bin is determined, the histogram of oriented gradient can be drawn. Figure 3 is an example of a histogram.  
 ![Figure 3 Example of histogram](https://github.com/Key1994/Course_of_self-driving_car_Udacity/blob/master/Vehicles_detection/Graphs/Fig3.png)  
@@ -80,7 +81,8 @@ First, divide an image into an S*S grid, such as 7*7 and 13*13. If the center of
 There are B bounding box (also called bbx) in a cell, which are used to described the probability and position of the objects. A bounding box is composed of 5 data: list (x,y,w,h) to describe the position and confidence to predict the class probability.   
 The meaning of list (x,y,w,h) is shown in Figure 10. Generally, the value of four numbers are normalized to the range of [0,1].  
 ![Figure 10 The meaning of list (x,y,w,h)](https://github.com/Key1994/Course_of_self-driving_car_Udacity/blob/master/Vehicles_detection/Graphs/Fig10.png)  
-The calculation of confidence is：  
+The calculation of confidence is： 
+![Fig 16](https://github.com/Key1994/Course_of_self-driving_car_Udacity/blob/master/Vehicles_detection/Graphs/Fig16.png)  
 Pr(Object) is the probability that the bbx contains objects, which can be 0 or 1. Pr(Classi) refers to the probability that the object is i-th class if there is an object in the bbx.   
 Therefore, the information of a cell can be expressed by a vector with (B * 5 + C) elements like Figure 11. Here, C is the number of the overall classes in the dataset.  
 ![Figure 11 The information vector of a cell](https://github.com/Key1994/Course_of_self-driving_car_Udacity/blob/master/Vehicles_detection/Graphs/Fig11.png)  
