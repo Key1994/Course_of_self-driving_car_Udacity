@@ -12,6 +12,7 @@ The process of state update and prediction is established via unscented Kalman f
 Different with CV model, the CTRV model can represent the curved path of obstacle, ss shown in Figure 1. The state vector of CTRV model can be described as:  
 ![Eq1](https://github.com/Key1994/Course_of_self-driving_car_Udacity/blob/master/Sensor_fusion_UKF/Graphs/Eq1.png)  
 ![Fig1](https://github.com/Key1994/Course_of_self-driving_car_Udacity/blob/master/Sensor_fusion_UKF/Graphs/Fig1.png)  
+                     Figure 1 The diagram of CTRV model  
 Here,  denotes the yaw angle and its derivatives is the turn rate.
 Usually, we use the following equation to describe the relationship between two adjacent sampling time:  
 ![Eq2](https://github.com/Key1994/Course_of_self-driving_car_Udacity/blob/master/Sensor_fusion_UKF/Graphs/Eq2.png)  
@@ -71,6 +72,7 @@ Oops! Something went wrong. But I was not worried because the bugs were always i
 > * The measurement data of Lidar and radar are not appropriate since the velocity of obstacle varies constantly, while the CTRV model assumes that the velocity is constant.  
 > * The sigma points spread too dispersive, which results in the divergence of the final results after several sampling period. I have tried to solve this problem but didn’t success.   
 > * There is another possible explanation: the UKF relies greatly on the initial value and the accuracy of the model. Things maybe go wrong from this point.  
+
 All in all, I still have not solve this problem and I feel a bit depressed. I will upload all of the materials to my Github, including the MATLAB codes. If you have any suggestion for me, please don’t hesitate to contact me: zhengzha16@163.com. I need your help!  
 
   
