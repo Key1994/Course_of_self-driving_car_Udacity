@@ -29,6 +29,7 @@ However, Kalman cannot be applied to process Radar data, since only when the sys
 In this section, the kinematic model of obstacle is established and the architecture of fusion system is built based on this model. When considering about obstacle tracking, two pairs of variables are essential:   
 > 1)	x and y to describe the position of obstacle;  
 > 2)	Vx and Vy to describe the velocity of obstacle.  
+
 Consequently, the state vector of obstacle can be expressed by Equation (3):  
 ![Eq3)(https://github.com/Key1994/Course_of_self-driving_car_Udacity/blob/master/Sensor_Fusion_EKF/Graphs/Eq3.png)  
 Assumed that the sampling period of sensors is T, thus the discrete state of obstacle at time k can be shown as:  
